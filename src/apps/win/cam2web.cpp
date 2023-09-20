@@ -912,7 +912,7 @@ static bool StartVideoStreaming( )
             SetTimer( gData->hwndMain, TIMER_ID_FPS_UPDATE, 1000, NULL );
             // setup timer to monitor for web server activity
             SetTimer( gData->hwndMain, TIMER_ID_ACTIVITY_CHECK, 1000, NULL );
-           
+
             ret = true;
         }
     }
@@ -1187,7 +1187,7 @@ LRESULT CALLBACK MainWndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
                     swprintf( strPortNumber, 15, L":%d", gData->appConfig->HttpPort( ) );
                 }
 
-                swprintf( strStatusLinkText, 255, L"<a href=\"http://%s%s/\">Streaming on port %d ...</a>",
+                swprintf( strStatusLinkText, 255, L"<a href=\"http://%s%s/\">Streaming on port %d ...</a>", //DevSkim: ignore DS137138
                           Utf8to16( localIp ).c_str( ), strPortNumber, gData->appConfig->HttpPort( ) );
                 SetWindowText( gData->hwndStatusLink, strStatusLinkText );
 
@@ -1205,7 +1205,7 @@ LRESULT CALLBACK MainWndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
             }
 
             SetWindowText( gData->hwndStartButton, startButtonText );
-            
+
             if ( !gData->showNoUI )
             {
                 ShowWindow( gData->hwndStatusLink, showStatusLink );
